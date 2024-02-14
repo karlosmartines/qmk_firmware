@@ -1,5 +1,9 @@
 #define SPLIT_USB_DETECT
+//#define AUTO_SHIFT_MODIFIERS
+#define AUTO_SHIFT_TIMEOUT 150
 //#define UNICODE_SELECTED_MODES UC_LNX
+
+
 /*
 Copyright 2020 Pierre Chevalier <pierrechevalier83@gmail.com>
 
