@@ -1,9 +1,5 @@
-//#include "quantum.h"
 #include QMK_KEYBOARD_H
 #include "keymap_us_international_linux.h"
-//#include "keymap_norwegian.h"
-//#include "sendstring_norwegian.h"
-//#include "keymap_"
 
 // void matrix_init_user(void) {
 //   // debug_enable=true;
@@ -11,13 +7,21 @@
 //   //debug_keyboard=true;
 //   //debug_mouse=true;
 // }
-//const uint16_t PROGMEM nor[] = {S(KC_9), S(KC_0), S(KC_MINS)};
+const uint16_t PROGMEM to_layer_nor[] = {S(KC_9), S(KC_0), S(KC_MINS), COMBO_END};
+const uint16_t PROGMEM to_layer_base[] = {US_ARNG, US_OSTR, US_AE, COMBO_END};
+const uint16_t PROGMEM type_z[] = {KC_QUOT, KC_C, COMBO_END};
+const uint16_t PROGMEM type_q[] = {KC_G, KC_B, COMBO_END};
+//const uint16_t PROGMEM type_qu[] = {KC_Y, KC_G, KC_B, COMBO_END};
 //enum combo_events {
 //    COMBO_NOR_LAYER_TOGGLE,
 //};
-//combo_t key_combos[COMBO_COUNT] = {
-//    [COMBO_NOR_LAYER_TOGGLE] = COMBO_ACTION(TO(1)),
-//};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(to_layer_nor, TO(1)),
+    COMBO(to_layer_base, TO(0)),
+    COMBO(type_z, KC_Z),
+    COMBO(type_q, KC_Q),
+//    COMBO(type_qu, KC_Q + KC_U)
+};
 
 
 // clang-format off

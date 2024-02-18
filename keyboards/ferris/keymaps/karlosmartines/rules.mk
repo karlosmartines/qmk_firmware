@@ -1,7 +1,7 @@
 UNICODE_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
-#COMBO_ENABLE = yes
+COMBO_ENABLE = yes
 SENDSTRING_ENABLE = yes
 
 # Extra features that are nice but takes space
