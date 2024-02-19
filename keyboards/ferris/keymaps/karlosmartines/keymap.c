@@ -38,9 +38,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, US_ARNG, US_OSTR, US_AE,
                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
-    [2] = LAYOUT(
-    KC_TAB,    KC_7,    KC_8,    KC_9, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BSPC, KC_DEL,
-    KC_ESC,    KC_4,    KC_5,    KC_6, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_ENT,
+    [2]  = LAYOUT(
+    US_COMM,    US_PLUS, US_ASTR, US_EXLM, KC_NO,      KC_NO, US_HASH, QK_REP,   US_CIRC,    KC_DOT,
+    US_PIPE, US_LCBR, US_RCBR, US_MINS, US_BSLS,      US_DGRV,     US_QUES, US_LBRC, US_RBRC, US_AT,
+    US_TILD, US_LABK, US_RABK, US_PERC, KC_NO,      US_SLSH, US_AMPR, US_LPRN, US_RPRN, US_UNDS,
+                                 _______, _______,      _______, _______
+    ),
+    [3] = LAYOUT(
+    KC_TAB,    KC_7,    KC_8,    KC_9, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
+    KC_ESC,    KC_4,    KC_5,    KC_6, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
     KC_TRNS,    KC_1,    KC_2,    KC_3, KC_0, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                         KC_NO, KC_TRNS, KC_TRNS, KC_TRNS
     )
