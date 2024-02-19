@@ -11,7 +11,9 @@ const uint16_t PROGMEM to_layer_nor[] = {S(KC_9), S(KC_0), S(KC_MINS), COMBO_END
 const uint16_t PROGMEM to_layer_base[] = {US_ARNG, US_OSTR, US_AE, COMBO_END};
 const uint16_t PROGMEM type_z[] = {KC_QUOT, KC_C, COMBO_END};
 const uint16_t PROGMEM type_q[] = {KC_G, KC_B, COMBO_END};
-//const uint16_t PROGMEM type_qu[] = {KC_Y, KC_G, KC_B, COMBO_END};
+const uint16_t PROGMEM tap_bspc[] = {QK_REP, KC_U, COMBO_END};
+const uint16_t PROGMEM tap_del[] = {KC_U, KC_DOT, COMBO_END};
+const uint16_t PROGMEM tap_ent[] = {KC_DOT, KC_O, COMBO_END};
 //enum combo_events {
 //    COMBO_NOR_LAYER_TOGGLE,
 //};
@@ -21,6 +23,9 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(type_z, KC_Z),
     COMBO(type_q, KC_Q),
 //    COMBO(type_qu, KC_Q + KC_U)
+    COMBO(tap_bspc, KC_BSPC),
+    COMBO(tap_del, KC_DEL),
+    COMBO(tap_ent, KC_ENT)
 };
 
 
