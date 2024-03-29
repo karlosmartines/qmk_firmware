@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "keymap_us_international_linux.h"
+#include "keymap_us_extended.h"
 
 // void matrix_init_user(void) {
 //   // debug_enable=true;
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_COMM, KC_H,    KC_Y,    KC_G,    KC_B,    KC_QUOT,   KC_C,    QK_REP, KC_U,    KC_DOT,
     KC_R,    KC_L,    KC_S,    KC_T,    KC_D,    KC_M,      KC_N,    KC_A,    KC_I,    KC_O,
     KC_X,    KC_K,    KC_F,    KC_P,    KC_J,    KC_V,      KC_W,    S(KC_9),  S(KC_0), S(KC_MINS),
-                               KC_TRNS, LT(2, KC_SPC),  KC_E,      KC_NO
+                               DF(3), LT(2, KC_SPC),  KC_E,      DF(4)
     ),
     [1] = LAYOUT(
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -45,17 +45,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, US_ARNG, US_OSTR, US_AE,
                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
-    [2]  = LAYOUT(
+    [2]  = LAYOUT( // This should be a one-shot layer I think
     US_COMM,    US_PLUS, US_ASTR, US_EXLM, KC_NO,      KC_NO, US_HASH, QK_REP,   US_CIRC,    KC_DOT,
     US_PIPE, US_LCBR, US_RCBR, US_MINS, US_BSLS,      US_DGRV,     US_QUES, US_LBRC, US_RBRC, US_AT,
     US_TILD, US_LABK, US_RABK, US_PERC, KC_NO,      US_SLSH, US_AMPR, US_LPRN, US_RPRN, US_UNDS,
-                                 _______, _______,      _______, _______
+                                 KC_LCTL, _______,      KC_LGUI, KC_LALT
     ),
     [3] = LAYOUT(
-    KC_TAB,    KC_7,    KC_8,    KC_9, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
-    KC_ESC,    KC_4,    KC_5,    KC_6, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
-    KC_TRNS,    KC_1,    KC_2,    KC_3, KC_0, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                        KC_NO, KC_TRNS, KC_TRNS, KC_TRNS
+        KC_TAB,    C(KC_7),    C(KC_8),    C(KC_9), KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
+        KC_ESC,    C(KC_1),    C(KC_2),    C(KC_3), C(KC_0), KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
+        KC_TRNS,    C(KC_4),    C(KC_5),    C(KC_6), KC_TRNS, KC_TRNS, LCTL(KC_LEFT), KC_TRNS, KC_TRNS, KC_TRNS,
+                                        DF(0), S(KC_LALT), KC_LGUI, KC_RALT
+    ),
+    [4] = LAYOUT(
+        KC_TAB,    KC_7,    KC_8,    KC_9, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
+        KC_ESC,    KC_1,    KC_2,    KC_3, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
+        KC_TRNS,    KC_4,    KC_5,    KC_6, KC_0, KC_TRNS, LCTL(KC_LEFT), KC_TRNS, KC_TRNS, KC_TRNS,
+                                        KC_NO, KC_TRNS, KC_TRNS, DF(0)
     )
+// What functions will I be using this layer for?
+// I want tap to be change to layer, so that I can backspace, scroll with arrow keys.
+// I also want it to act like a navigationlayer for my window manager, but also Id like to keep the modifier keys on the four thumbkeys consistently.
+// I think the order ctrl, alt, gui(windows/cmd) make sense. These need to be callum style one-shot on layer 2
+// For the window navigation I need:
+// goto ws num, goto ws left/right
+// moveto ws num, moveto ws left/right
+// change window positions on current ws        shift + ctrl + option + j/k
+// change window size                           shift + option + h/l
+// change layout                                shift + option + space // shift + option + ctrl + space
+// I should maybe have two versions of this layer? One that stays in the layer for when I want to keep moving and one to exit after number and arrow e.g.
+//
+//
+//
+//
+//
+//
+//
+//
+//
 };
 // clang-format on
