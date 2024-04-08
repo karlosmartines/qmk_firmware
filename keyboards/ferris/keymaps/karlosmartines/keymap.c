@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
-#include "oneshot.h"
 #include "keymap_us_extended.h"
-
+#include "oneshot.h"
 // void matrix_init_user(void) {
 //   // debug_enable=true;
 //   // debug_matrix=true;
