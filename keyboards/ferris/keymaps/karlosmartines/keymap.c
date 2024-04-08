@@ -85,6 +85,9 @@ LAYOUT(
 };
 
 // clang-format on
+static uint16_t last_key_down = KC_NO;
+static uint16_t last_key_up   = KC_NO;
+
 
 // One-shot mods
 
@@ -146,8 +149,8 @@ const uint16_t PROGMEM tap_esc[] = {KC_H, KC_L, COMBO_END};
 //    COMBO_NOR_LAYER_TOGGLE,
 //};
 combo_t key_combos[COMBO_COUNT] = {
-        COMBO(to_layer_nor, TO(1)),
-        COMBO(to_layer_base, TO(0)),
+        COMBO(to_layer_nor, TO(_NOR)),
+        COMBO(to_layer_base, TO(_BASE)),
         COMBO(type_z, KC_Z),
         COMBO(type_q, KC_Q),
 //    COMBO(type_qu, KC_Q + KC_U)
@@ -192,11 +195,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     process_oneshot_post(keycode, record);
 
-//    if (record->event.pressed) {
-//        last_key_down = keycode;
-//    } else {
-//        last_key_up = keycode;
-//    }
+   if (record->event.pressed) {
+        last_key_down = keycode;
+    } else {
+        last_key_up = keycode;
+    }
 
     return res;
 }
