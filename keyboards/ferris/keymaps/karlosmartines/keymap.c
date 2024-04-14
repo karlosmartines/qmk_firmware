@@ -17,12 +17,15 @@ enum layer {
 };
 
 enum custom_keycodes {
-    OS_CTRL,
+    OS_CTRL = SAFE_RANGE,
     OS_GUI,
     OS_ALT,
     OS_SHFT,
     CLEAR,
 };
+#define WM_LEFT S(A(KC_J))
+#define WM_RGHT S(A(KC_K))
+
 
 // clang-format off
 const uint16_t PROGMEM
@@ -32,7 +35,7 @@ LAYOUT(
         KC_COMM, KC_H, KC_Y, KC_G, KC_B, QK_BOOT, KC_C, QK_REP, KC_U, KC_DOT,
         KC_R, KC_L, KC_S, KC_T, KC_D, KC_M, KC_N, KC_A, KC_I, KC_O,
         KC_X, KC_K, KC_F, KC_P, KC_J, KC_V, KC_W, S(KC_9), S(KC_0), S(KC_MINS),
-        OSL(_SYM), LT(DF(_WM_NAV), KC_SPC), KC_E, DF(_NUM_NAV)
+        OSL(_SYM), LT(MO(_WM_NAV), KC_SPC), KC_E, MO(_NUM_NAV)
 ),
 [_NOR] =
 LAYOUT(
@@ -44,23 +47,23 @@ LAYOUT(
 [_SYM]  =
 LAYOUT( // This should be a one-shot layer I think
         US_COMM, US_PLUS, US_ASTR, US_EXLM, KC_NO, KC_NO/*CW here?*/, US_HASH, QK_REP, US_CIRC, KC_DOT,
-        US_PIPE, US_LCBR, US_RCBR, US_MINS, US_BSLS, US_GRV, US_QUES, US_LBRC, US_RBRC, US_AT,
+        US_PIPE, US_LCBR, US_RCBR, US_MINS, US_BSLS, US_GRV, US_QUES, US_LBRC, KC_RBRC, US_AT,
         US_TILD, US_LABK, US_RABK, US_PERC, KC_NO, US_SLSH, US_AMPR, US_LPRN, US_RPRN, US_UNDS,
         OS_CTRL, OS_SHFT, OS_GUI, OS_ALT
 ),
 [_WM_NAV] =
 LAYOUT(
-        KC_TAB, C(KC_7), C(KC_8), C(KC_9), KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
-        KC_ESC, C(KC_1), C(KC_2), C(KC_3), C(KC_0), KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
-        KC_TRNS, C(KC_4), C(KC_5), C(KC_6), KC_TRNS, KC_TRNS, LCTL(KC_LEFT), KC_TRNS, KC_TRNS, KC_TRNS,
-        _______, DF(_BASE), OS_GUI, OS_ALT
+        KC_TAB, C(KC_7), C(KC_8), C(KC_9), KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_ENT, KC_DEL,
+        KC_ESC, C(KC_1), C(KC_2), C(KC_3), C(KC_0), WM_LEFT, KC_DOWN, KC_UP, WM_RGHT, KC_BSPC,
+        KC_TRNS, C(KC_4), C(KC_5), C(KC_6), KC_TRNS, KC_TRNS, _______, KC_TRNS, KC_TRNS, KC_TRNS,
+        OS_CTRL, _______, OS_GUI, OS_ALT
 ),
 [_NUM_NAV] =
 LAYOUT(
-        KC_TAB, KC_7, KC_8, KC_9, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_BSPC, KC_DEL,
-        KC_ESC, KC_1, KC_2, KC_3, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_DOWN, KC_ENT,
-        KC_TRNS, KC_4, KC_5, KC_6, KC_0, KC_TRNS, LCTL(KC_LEFT), KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_NO, KC_TRNS, KC_TRNS, DF(_BASE)
+        KC_TAB, KC_7, KC_8, KC_9, KC_TRNS, KC_TRNS, KC_TRNS, QK_REP, KC_ENT, KC_DEL,
+        KC_ESC, KC_1, KC_2, KC_3, KC_0, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_BSPC,
+        KC_TRNS, KC_4, KC_5, KC_6, _______, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        OS_CTRL, OS_ALT, OS_GUI, _______
 )
 // What functions will I be using this layer for?
 // I want tap to be change to layer, so that I can backspace, scroll with arrow keys.
