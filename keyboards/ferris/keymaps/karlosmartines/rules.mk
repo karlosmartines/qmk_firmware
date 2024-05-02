@@ -4,6 +4,7 @@ AUTO_SHIFT_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 COMBO_ENABLE = yes
 SENDSTRING_ENABLE = yes
+CONSOLE_ENABLE = yes
 
 # Extra features that are nice but takes space
 RGBLIGHT_ENABLE = no        # Keyboard RGB underglow
@@ -18,8 +19,8 @@ RGB_MATRIX_ENABLE = no      # Per key RGB, Ferris Bling requires this
 # Saves a bunch of memory
 EXTRAFLAGS += -flto
 VERBOSE = no
-DEBUG_MATRIX_SCAN_RATE  = no
-DEBUG_MATRIX = no
+DEBUG_MATRIX_SCAN_RATE  = yes
+DEBUG_MATRIX = yes
 MAGIC_ENABLE = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no

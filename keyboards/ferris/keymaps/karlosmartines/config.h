@@ -4,7 +4,7 @@
 #define SPLIT_HAND_PIN B7
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
 
-#define COMBO_COUNT 8
+#define COMBO_COUNT 9
 
 
 /*
