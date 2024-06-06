@@ -34,6 +34,7 @@ void update_oneshot_pre(
                     *state = os_up_unqueued;
                     unregister_code(mod);
 //                    print_mods(get_mods());
+                    uprintf("update_oneshot_pre keyup used | state: %d \n", *state);
                     break;
                 default:
                     break;
